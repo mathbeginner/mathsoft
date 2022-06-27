@@ -1,0 +1,80 @@
+
+\documentclass{ctexart}
+
+\usepackage{graphicx}
+\usepackage{amsmath}
+
+\title{作业一:洛必达法则的叙述与证明}
+
+
+\author{施吉胤 \\ 强基数学2001 3200105343}
+ 
+\begin{document}
+
+\maketitle
+这是一个研究未定式极限的问题.众所周知,如果$f(x) \to 0$,$g(x) \to 0$ 或者$f(x)\rightarrow \infty$,$g(x)\rightarrow \infty$ ,则$\frac{f(x)}{g(x)}$比值的极限较为复杂,把这种极限称为未定式.洛必达法则就是用来解决这样的未定式的极限问题的方法.
+
+\section{问题描述}
+洛必达法则叙述如下:\\
+定理1:\\
+若函数f(x)和g(x)都在点a的一个空心邻域中可导,$g'(x)\neq 0$,
+\begin{equation}
+  \lim\limits_{x \to a}\frac{f'(x)}{g'(x)}=A\label{eq1}
+\end{equation}
+(i)若$\lim\limits_{x \to a}f(x)=\lim\limits_{x \to a}g(x)=0$,则
+\begin{equation}
+  \lim\limits_{x \to a}\frac{f(x)}{g(x)}=A\label{eq2}
+  \end{equation}
+(ii)若$\lim\limits_{x \to a}g(x)= \infty$,则也有\eqref{eq2}成立\\
+定理2:\\
+设f(x)和g(x)都在$|x|>a>0$时可导,且$g'(x) \neq 0$,
+\begin{equation}
+  \lim\limits_{x \to \infty}\frac{f'(x)}{g'(x)}=A\label{eq3}
+  \end{equation}
+(i)若$\lim\limits_{x \to \infty}f(x)=\lim\limits_{x \to \infty}g(x)=0$,则
+\begin{equation}
+  \lim\limits_{x \to \infty}\frac{f(x)}{g(x)}=A\label{eq4}
+  \end{equation}
+(ii)若$\lim\limits_{x \to \infty}g(x)= \infty$,则也有\eqref{eq4}成立\\
+
+\section{证明}
+定理证明如下:\\
+定理1:\\
+（i）补充定义$f(a)=g(a)=0$,于是f(x)和g(x)都在$N(a,\delta)$上连续,当$x<a$,由柯西中值定理知道,存在$\xi \in (x,a)$,使得
+\begin{equation}
+  \lim\limits_{x \to a^-}\frac{f(x)}{g(x)}=\lim\limits_{x \to a^-}\frac{f(a)-f(x)}{g(a)-g(x)}=\lim\limits_{x \to a^-}\frac{f'(\xi)}{g'(\xi)}\label{eq5}
+  \end{equation}
+因为$x \to a^-$时,$\xi \to a^-$,故\eqref{eq1}和\eqref{eq5}由知道右端极限为A,从而有
+\begin{equation}
+  \lim\limits_{x \to a^-}\frac{f(x)}{g(x)}=A\label{eq6}
+  \end{equation}
+同理可证
+\begin{equation}
+  \lim\limits_{x \to a^+}\frac{f(x)}{g(x)}=A\label{eq7}
+\end{equation}
+将\eqref{eq6}和\eqref{eq7}结合起来即得到结果\\
+
+（ii）先证\eqref{eq6},设$A \in R$,于是由\eqref{eq1}知道对于任意的$\epsilon > 0$,都存在$\delta > 0$,使得当$0<|x-a| \leq \delta$,就有
+
+\begin{equation}
+  |\frac{f'(x)}{g'(x)}-A|<\epsilon\label{eq8}
+  \end{equation},
+当$x \in (a-\delta,a)$,由柯西中值定理知存在$\xi \in (a-\delta,a)$,使得
+\begin{equation}
+  \frac{f(x)}{g(x)}=\frac{f(x)-f(a-\delta)}{g(x)-g(a-\delta)}*\frac{g(x)-g(a-\delta)}{g(x)}+\frac{f(a-\delta)}{g(x)}=\frac{f'(\xi)}{g'(\xi)}*\frac{g(x)-g(a-\delta)}{g(x)}+\frac{f(a-\delta)}{g(x)}\label{eq9}
+\end{equation}
+
+由于$g'(x) \neq 0$,并且$g(x) \to \infty$,$(x \to a)$,故可以设$ g(x)>0 $,$g'(x)>0$,且$g(x) \to +\infty$ $(x \to a^-)$,于是\eqref{eq9}式右边第一项的第二个因式为正，从而得到$\frac{f(x)}{g(x)} \leq(A+\epsilon)*\frac{g(x)-g(a-\delta)}{g(x)}+\frac{f(a-\delta)}{g(x)}$,令$x \to a^- $取上极限,即得
+\begin{equation}
+  \varlimsup\limits_{x \to a^-}\frac{f(x)}{g(x)} \leq A+\epsilon\label{eq10}
+  \end{equation}
+同理可证
+\begin{equation}
+  \varliminf\limits_{x \to a^-}\frac{f(x)}{g(x)} \geq A-\epsilon\label{eq11}
+  \end{equation}
+把\eqref{eq10}和\eqref{eq11}结合起来,得到$A-\epsilon \leq \varliminf\limits_{x \to a^-}\frac{f(x)}{g(x)} \leq \varlimsup\limits_{x \to a^-}\frac{f(x)}{g(x)} \leq A+\epsilon $,再由任意性即得,同理可证,从而知道式于$A \in R$时成立.\\
+定理2:\\
+令$F(t)=f(\frac{1}{t})$,$G(t)=g(\frac{1}{t})$,于是F(t)和G(t)都在点0的一个空心邻域中可导,且$G'(t)=g'(\frac{1}{t})*(-\frac{1}{t^2}) \neq 0$,$\lim\limits_{t \to 0}\frac{F'(t)}{G'(t)}=\lim\limits_{t \to 0}\frac{f'(\frac{1}{t})*(-\frac{1}{t^2})}{g'(\frac{1}{t})*(-\frac{1}{t^2})}=\lim\limits_{x \to \infty}\frac{f'(x)}{g'(x)}=A$.因此由定理1知定理2成立.
+
+
+\end{document}
